@@ -90,6 +90,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde3/containers.so
 %{_libdir}/kde3/kexi.la
 %attr(755,root,root) %{_libdir}/kde3/kexi.so
+%{_libdir}/kde3/kexidb_sqlite2driver.la
+%attr(755,root,root) %{_libdir}/kde3/kexidb_sqlite2driver.so
+%{_libdir}/kde3/kexidb_sqlite3driver.la
+%attr(755,root,root) %{_libdir}/kde3/kexidb_sqlite3driver.so
 %{_libdir}/kde3/kexidbwidgets.la
 %attr(755,root,root) %{_libdir}/kde3/kexidbwidgets.so
 %{_libdir}/kde3/libkformdesigner_part.la
@@ -106,10 +110,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde3/kexihandler_table.so
 %{_libdir}/kde3/keximigrate_pqxxmigrate.la
 %attr(755,root,root) %{_libdir}/kde3/keximigrate_pqxxmigrate.so
-%{_libdir}/kde3/kexidb_sqlite2driver.la
-%attr(755,root,root) %{_libdir}/kde3/kexidb_sqlite2driver.so
-%{_libdir}/kde3/kexidb_sqlite3driver.la
-%attr(755,root,root) %{_libdir}/kde3/kexidb_sqlite3driver.so
 %{_libdir}/kde3/stdwidgets.la
 %attr(755,root,root) %{_libdir}/kde3/stdwidgets.so
 %{_libdir}/libkdeinit_kexi.la

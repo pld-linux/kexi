@@ -4,7 +4,7 @@ Name:		kexi
 Version:	0.1
 %define		_beta	beta5
 %define		_snap	20041208
-Release:	0.%{_snap}.1
+Release:	0.%{_snap}.2
 License:	GPL v2
 Group:		Applications/Databases
 #Source0:	ftp://ftp.kde.org/pub/kde/unstable/apps/KDE3.x/office/%{name}-%{version}%{_beta}.tar.bz2
@@ -12,14 +12,10 @@ Source0:	kexi-0.1-cvs%{_snap}.tar.bz2
 # Source0-md5:	a7a994493574ded550fc44420fb29eef
 URL:		http://www.kexi-project.org/
 BuildRequires:	automake
-#BuildRequires:	doxygen
 BuildRequires:	kdelibs-devel
 BuildRequires:	libpqxx-devel
 BuildRequires:	libxml2-progs
 BuildRequires:	mysql-devel
-BuildRequires:	postgresql-devel
-#BuildRequires:	qsa
-#BuildRequires:	unixODBC-devel (it needs fixes in kexi/kexidb/drivers/configure.in*)
 BuildRequires:	unsermake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -31,6 +27,30 @@ database schemas, inserting, querying and processing data.
 Kexi to zintegrowane ¶rodowisko do zarz±dzania danymi. Pomaga przy
 tworzeniu schematów baz danych oraz wstawianiu, odpytywaniu i
 przetwarzaniu danych.
+
+%package backend-mysql
+Summary:        mySQL backend for Kexi
+Summary(pl):    Backend mySQL dla Kexi
+Group:          Applications/Databases
+Requires:       %{name} = %{version}-%{release}
+
+%description backend-mysql
+This package allows Kexi to access mySQL servers.
+
+%description backend-mysql -l pl
+Ten pakiet pozwala na ³±czenie siê Kexi z serwerem mySQL.
+
+%package backend-pgsql
+Summary:        PostgreSQL backend for Kexi
+Summary(pl):    Backend PostgreSQL dla Kexi
+Group:          Applications/Databases
+Requires:       %{name} = %{version}-%{release}
+
+%description backend-pgsql
+This package allows Kexi to access PosgtresSQL servers.
+
+%description backend-pgsql -l pl
+Ten pakiet pozwala na ³±czenie siê Kexi z serwerem PostgreSQL.
 
 %prep
 %setup -q -n %{name}-%{version}-cvs
@@ -72,14 +92,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde3/kexi.so
 %{_libdir}/kde3/kexidbwidgets.la
 %attr(755,root,root) %{_libdir}/kde3/kexidbwidgets.so
-%{_libdir}/kde3/kexidb_mysqldriver.la
-%attr(755,root,root) %{_libdir}/kde3/kexidb_mysqldriver.so
-%{_libdir}/kde3/kexidb_pqxxsqldriver.la
-%attr(755,root,root) %{_libdir}/kde3/kexidb_pqxxsqldriver.so
-%{_libdir}/kde3/kexidb_sqlite2driver.la
-%attr(755,root,root) %{_libdir}/kde3/kexidb_sqlite2driver.so
-%{_libdir}/kde3/kexidb_sqlite3driver.la
-%attr(755,root,root) %{_libdir}/kde3/kexidb_sqlite3driver.so
 %{_libdir}/kde3/libkformdesigner_part.la
 %attr(755,root,root) %{_libdir}/kde3/libkformdesigner_part.so
 %{_libdir}/kde3/kexihandler_form.la
@@ -94,6 +106,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde3/kexihandler_table.so
 %{_libdir}/kde3/keximigrate_pqxxmigrate.la
 %attr(755,root,root) %{_libdir}/kde3/keximigrate_pqxxmigrate.so
+%{_libdir}/kde3/kexidb_sqlite2driver.la
+%attr(755,root,root) %{_libdir}/kde3/kexidb_sqlite2driver.so
+%{_libdir}/kde3/kexidb_sqlite3driver.la
+%attr(755,root,root) %{_libdir}/kde3/kexidb_sqlite3driver.so
 %{_libdir}/kde3/stdwidgets.la
 %attr(755,root,root) %{_libdir}/kde3/stdwidgets.so
 %{_libdir}/libkdeinit_kexi.la
@@ -147,3 +163,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/services/*.desktop
 %{_datadir}/services/kformdesigner
 %{_datadir}/servicetypes/*.desktop
+
+%files backend-mysql
+%{_libdir}/kde3/kexidb_mysqldriver.la
+%attr(755,root,root) %{_libdir}/kde3/kexidb_mysqldriver.so
+
+%files backend-pgsql
+%{_libdir}/kde3/kexidb_pqxxsqldriver.la
+%attr(755,root,root) %{_libdir}/kde3/kexidb_pqxxsqldriver.so

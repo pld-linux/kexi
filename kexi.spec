@@ -4,7 +4,7 @@ Summary:	Kexi is an integrated environment for managing data
 Name:		kexi
 Version:	0.1
 %define		_beta	beta5
-Release:	0.%{_beta}.1
+Release:	0.%{_beta}.2
 License:	GPL v2
 Group:		Applications/Databases
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/apps/KDE3.x/office/%{name}-%{version}%{_beta}.tar.bz2
@@ -52,7 +52,7 @@ rm -rf $RPM_BUILD_ROOT
 	kde_libs_htmldir=%{_kdedocdir}
 
 install -d $RPM_BUILD_ROOT%{_desktopdir}
-mv $RPM_BUILD_ROOT%{_datadir}/applnk/{Office/kexi.desktop,Utilities/kformdesigner.desktop} \
+mv $RPM_BUILD_ROOT%{_datadir}{/applnk/Utilities/kformdesigner.desktop,/applications/kde/kexi.desktop} \
 	$RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
@@ -64,18 +64,23 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc kexi/CHANGES AUTHORS README
-%attr(755,root,root) %{_bindir}/kexi
-%attr(755,root,root) %{_bindir}/kformdesigner
+%attr(755,root,root) %{_bindir}/*
 %{_libdir}/kde3/containers.la
 %attr(755,root,root) %{_libdir}/kde3/containers.so
 %{_libdir}/kde3/kexi.la
 %attr(755,root,root) %{_libdir}/kde3/kexi.so
+%{_libdir}/kde3/kexidbwidgets.la
+%attr(755,root,root) %{_libdir}/kde3/kexidbwidgets.so
 %{_libdir}/kde3/kexidb_mysqldriver.la
 %attr(755,root,root) %{_libdir}/kde3/kexidb_mysqldriver.so
 %{_libdir}/kde3/kexidb_pqxxsqldriver.la
 %attr(755,root,root) %{_libdir}/kde3/kexidb_pqxxsqldriver.so
-%{_libdir}/kde3/kexidb_sqlitedriver.la
-%attr(755,root,root) %{_libdir}/kde3/kexidb_sqlitedriver.so
+%{_libdir}/kde3/kexidb_sqlite2driver.la
+%attr(755,root,root) %{_libdir}/kde3/kexidb_sqlite2driver.so
+%{_libdir}/kde3/kexidb_sqlite3driver.la
+%attr(755,root,root) %{_libdir}/kde3/kexidb_sqlite3driver.so
+%{_libdir}/kde3/libkformdesigner_part.la
+%attr(755,root,root) %{_libdir}/kde3/libkformdesigner_part.so
 %{_libdir}/kde3/kexihandler_form.la
 %attr(755,root,root) %{_libdir}/kde3/kexihandler_form.so
 %{_libdir}/kde3/kexihandler_query.la
@@ -104,16 +109,19 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkexipropertyeditor.so.*.*.*
 %{_libdir}/libkexirelationsview.la
 %attr(755,root,root) %{_libdir}/libkexirelationsview.so.*.*.*
-%{_libdir}/libkexisql.la
-%attr(755,root,root) %{_libdir}/libkexisql.so.*.*.*
-%{_libdir}/libkformeditor.la
-%attr(755,root,root) %{_libdir}/libkformeditor.so.*.*.*
+%{_libdir}/libkexisql2.la
+%attr(755,root,root) %{_libdir}/libkexisql2.so.*.*.*
+%{_libdir}/libkexisql3.la
+%attr(755,root,root) %{_libdir}/libkexisql3.so.*.*.*
+%{_libdir}/libkformdesigner.la
+%attr(755,root,root) %{_libdir}/libkformdesigner.so.*.*.*
 %dir %{_datadir}/apps/kexi
 %dir %{_datadir}/apps/kexi/icons
 %{_datadir}/apps/kexi/icons/crystalsvg
 %{_datadir}/apps/kexi/pics
 %{_datadir}/apps/kexi/*.rc
 %{_datadir}/apps/kformdesigner
+%{_datadir}/apps/kformdesigner_part
 %{_desktopdir}/kexi.desktop
 %{_desktopdir}/kformdesigner.desktop
 %{_datadir}/config/kexirc
@@ -124,7 +132,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/crystalsvg/scalable/apps/kexi.svgz	       
 %{_datadir}/mimelnk/application/x-kexiproject-shortcut.desktop
 %{_datadir}/mimelnk/application/x-kexiproject-sqlite.desktop
+%{_datadir}/mimelnk/application/x-kexiproject-sqlite2.desktop
+%{_datadir}/mimelnk/application/x-kexiproject-sqlite3.desktop
 %{_datadir}/services/kexi
 %{_datadir}/services/*.desktop
-%{_datadir}/services/kformeditor
+%{_datadir}/services/kformdesigner
 %{_datadir}/servicetypes/*.desktop

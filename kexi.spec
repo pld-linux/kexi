@@ -43,10 +43,68 @@ rm -rf $RPM_BUILD_ROOT
 	kde_libs_htmldir=%{_kdedocdir}
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+#rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
 #doc AUTHORS CREDITS ChangeLog NEWS README THANKS TODO
-#attr(755,root,root) %{_bindir}/*
-#{_datadir}/%{name}
+%attr(755,root,root) %{_bindir}/kexi
+%attr(755,root,root) %{_bindir}/kformdesigner
+%{_libdir}/kde3/containers.la
+%attr(755,root,root) %{_libdir}/kde3/containers.so
+%{_libdir}/kde3/kexi.la
+%attr(755,root,root) %{_libdir}/kde3/kexi.so
+%{_libdir}/kde3/kexidb_mysqldriver.la
+%attr(755,root,root) %{_libdir}/kde3/kexidb_mysqldriver.so
+%{_libdir}/kde3/kexidb_pqxxsqldriver.la
+%attr(755,root,root) %{_libdir}/kde3/kexidb_pqxxsqldriver.so
+%{_libdir}/kde3/kexidb_sqlitedriver.la
+%attr(755,root,root) %{_libdir}/kde3/kexidb_sqlitedriver.so
+%{_libdir}/kde3/kexihandler_form.la
+%attr(755,root,root) %{_libdir}/kde3/kexihandler_form.so
+%{_libdir}/kde3/kexihandler_query.la
+%attr(755,root,root) %{_libdir}/kde3/kexihandler_query.so
+%{_libdir}/kde3/kexihandler_relation.la
+%attr(755,root,root) %{_libdir}/kde3/kexihandler_relation.so
+%{_libdir}/kde3/kexihandler_table.la
+%attr(755,root,root) %{_libdir}/kde3/kexihandler_table.so
+%{_libdir}/kde3/stdwidgets.la
+%attr(755,root,root) %{_libdir}/kde3/stdwidgets.so
+%{_libdir}/libkdeinit_kexi.la
+%attr(755,root,root) %{_libdir}/libkdeinit_kexi.so
+%{_libdir}/libkexicore.la
+%attr(755,root,root) %{_libdir}/libkexicore.so.*.*.*
+%{_libdir}/libkexidatatable.la
+%attr(755,root,root) %{_libdir}/libkexidatatable.so.*.*.*
+%{_libdir}/libkexidb.la
+%attr(755,root,root) %{_libdir}/libkexidb.so.*.*.*
+%{_libdir}/libkexidbparser.la
+%attr(755,root,root) %{_libdir}/libkexidbparser.so.*.*.*
+%{_libdir}/libkexiextendedwidgets.la
+%attr(755,root,root) %{_libdir}/libkexiextendedwidgets.so.*.*.*
+%{_libdir}/libkeximain.la
+%attr(755,root,root) %{_libdir}/libkeximain.so.*.*.*
+%{_libdir}/libkexipropertyeditor.la
+%attr(755,root,root) %{_libdir}/libkexipropertyeditor.so.*.*.*
+%{_libdir}/libkexirelationsview.la
+%attr(755,root,root) %{_libdir}/libkexirelationsview.so.*.*.*
+%{_libdir}/libkexisql.la
+%attr(755,root,root) %{_libdir}/libkexisql.so.*.*.*
+%{_libdir}/libkformeditor.la
+%attr(755,root,root) %{_libdir}/libkformeditor.so.*.*.*
+%dir %{_datadir}/apps/kexi
+%dir %{_datadir}/apps/kexi/icons
+%{_datadir}/apps/kexi/icons/crystalsvg
+%{_datadir}/apps/kformdesigner
+#/usr/share/applnk/Office/kexi.desktop
+#/usr/share/applnk/Utilities/kformdesigner.desktop
+%{_datadir}/config/kexirc
+%dir %{_datadir}/config/magic
+%{_datadir}/config/magic/kexi.magic
+%{_iconsdir}/crystalsvg/32x32/mimetypes/kexiproject_shortcut.png
+%{_iconsdir}/crystalsvg/32x32/mimetypes/kexiproject_sqlite.png
+%{_iconsdir}/crystalsvg/scalable/apps/kexi.svgz	       
+#/usr/share/mimelnk/application/x-kexiproject-shortcut.desktop
+#/usr/share/mimelnk/application/x-kexiproject-sqlite.desktop
+%{_datadir}/services
+%{_datadir}/servicetypes

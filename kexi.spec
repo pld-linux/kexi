@@ -3,13 +3,13 @@ Summary(pl):	Kexi - zintegrowane ¶rodowisko do zarz±dzania danymi
 Name:		kexi
 Version:	0.1
 %define		_beta	beta5
-%define		_snap	20041208
-Release:	0.%{_snap}.8
+%define		_snap	20050404
+Release:	0.%{_snap}.1
 License:	GPL v2
 Group:		Applications/Databases
 #Source0:	ftp://ftp.kde.org/pub/kde/unstable/apps/KDE3.x/office/%{name}-%{version}%{_beta}.tar.bz2
 Source0:	kexi-0.1-cvs%{_snap}.tar.bz2
-# Source0-md5:	a7a994493574ded550fc44420fb29eef
+# Source0-md5:	c4047f7ca9d67e650517ec587ae44c63
 URL:		http://www.kexi-project.org/
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel
@@ -51,6 +51,20 @@ This package allows Kexi to access PosgtresSQL servers.
 
 %description backend-pgsql -l pl
 Ten pakiet pozwala na ³±czenie siê Kexi z serwerem PostgreSQL.
+
+%package devel
+Summary:	Developement files for Kexi
+Summary(pl):	Pliki nag³ówkowe dla Kexi
+Group:		Applications/Databases
+Requires:       %{name} = %{version}-%{release}
+
+%description devel
+This package contains the development header files for applications
+using Kexi.
+
+%description devel -l pl
+Pakiet ten zawiera pliki nag³ówkowe dla aplikacji korzystaj±cych
+z Kexi.
 
 %prep
 %setup -q -n %{name}-%{version}-cvs
@@ -124,6 +138,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkexidbparser.so.*.*.*
 %{_libdir}/libkexiextendedwidgets.la
 %attr(755,root,root) %{_libdir}/libkexiextendedwidgets.so.*.*.*
+%{_libdir}/libkexiformutils.la
+%attr(755,root,root) %{_libdir}/libkexiformutils.so.*.*.*
+%{_libdir}/libkexiguiutils.la
+%attr(755,root,root) %{_libdir}/libkexiguiutils.so.*.*.*
 %{_libdir}/libkeximain.la
 %attr(755,root,root) %{_libdir}/libkeximain.so.*.*.*
 %{_libdir}/libkeximigrate.la
@@ -170,13 +188,21 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/kde3/kexidb_mysqldriver.la
 %attr(755,root,root) %{_libdir}/kde3/kexidb_mysqldriver.so
+%{_libdir}/kde3/keximigrate_mysql.la
+%attr(755,root,root) %{_libdir}/kde3/keximigrate_mysql.so
 %{_datadir}/services/kexidb_mysqldriver.desktop
+%{_datadir}/services/keximigrate_mysql.desktop
 
 %files backend-pgsql
 %defattr(644,root,root,755)
 %{_libdir}/kde3/kexidb_pqxxsqldriver.la
 %attr(755,root,root) %{_libdir}/kde3/kexidb_pqxxsqldriver.so
-%{_libdir}/kde3/keximigrate_pqxxmigrate.la
-%attr(755,root,root) %{_libdir}/kde3/keximigrate_pqxxmigrate.so
+%{_libdir}/kde3/keximigrate_pqxx.la
+%attr(755,root,root) %{_libdir}/kde3/keximigrate_pqxx.so
 %{_datadir}/services/kexidb_pqxxsqldriver.desktop
-%{_datadir}/services/keximigrate_pqxxmigrate.desktop
+%{_datadir}/services/keximigrate_pqxx.desktop
+
+%files devel
+%defattr(644,root,root,755)
+%dir %{_includedir}/kexidb
+%{_includedir}/kexidb/*

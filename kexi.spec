@@ -3,12 +3,12 @@ Summary(pl):	Kexi - zintegrowane ¶rodowisko do zarz±dzania danymi
 Summary:	Kexi is an integrated environment for managing data
 Name:		kexi
 Version:	0.1
-%define		_beta	beta3
+%define		_beta	beta5
 Release:	0.%{_beta}.1
 License:	GPL v2
 Group:		Applications/Databases
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/apps/KDE3.x/office/%{name}-%{version}%{_beta}.tar.bz2
-# Source0-md5:	90ddba0742b9d1552d82d9f02e16d555
+# Source0-md5:	ec707cb1d806b5523f1254da1a5d7a48
 URL:		http://www.kexi-project.org/
 BuildRequires:	automake
 #BuildRequires:	doxygen

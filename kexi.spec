@@ -4,7 +4,7 @@ Name:		kexi
 Version:	0.1
 %define		_beta	beta5
 %define		_snap	20041208
-Release:	0.%{_snap}.6
+Release:	0.%{_snap}.7
 License:	GPL v2
 Group:		Applications/Databases
 #Source0:	ftp://ftp.kde.org/pub/kde/unstable/apps/KDE3.x/office/%{name}-%{version}%{_beta}.tar.bz2

@@ -4,7 +4,7 @@ Name:		kexi
 Version:	0.1
 %define		_beta	beta5
 %define		_snap	20041208
-Release:	0.%{_snap}.7
+Release:	0.%{_snap}.8
 License:	GPL v2
 Group:		Applications/Databases
 #Source0:	ftp://ftp.kde.org/pub/kde/unstable/apps/KDE3.x/office/%{name}-%{version}%{_beta}.tar.bz2
@@ -110,8 +110,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde3/kexihandler_relation.so
 %{_libdir}/kde3/kexihandler_table.la
 %attr(755,root,root) %{_libdir}/kde3/kexihandler_table.so
-%{_libdir}/kde3/keximigrate_pqxxmigrate.la
-%attr(755,root,root) %{_libdir}/kde3/keximigrate_pqxxmigrate.so
 %{_libdir}/kde3/stdwidgets.la
 %attr(755,root,root) %{_libdir}/kde3/stdwidgets.so
 %{_libdir}/libkdeinit_kexi.la
@@ -162,7 +160,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mimelnk/application/x-kexiproject-sqlite2.desktop
 %{_datadir}/mimelnk/application/x-kexiproject-sqlite3.desktop
 %{_datadir}/services/kexi
-%{_datadir}/services/*.desktop
+%{_datadir}/services/kexidb_sqlite2driver.desktop
+%{_datadir}/services/kexidb_sqlite3driver.desktop
+%{_datadir}/services/kformdesigner_part.desktop
 %{_datadir}/services/kformdesigner
 %{_datadir}/servicetypes/*.desktop
 
@@ -170,8 +170,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/kde3/kexidb_mysqldriver.la
 %attr(755,root,root) %{_libdir}/kde3/kexidb_mysqldriver.so
+%{_datadir}/services/kexidb_mysqldriver.desktop
 
 %files backend-pgsql
 %defattr(644,root,root,755)
 %{_libdir}/kde3/kexidb_pqxxsqldriver.la
 %attr(755,root,root) %{_libdir}/kde3/kexidb_pqxxsqldriver.so
+%{_libdir}/kde3/keximigrate_pqxxmigrate.la
+%attr(755,root,root) %{_libdir}/kde3/keximigrate_pqxxmigrate.so
+%{_datadir}/services/kexidb_pqxxsqldriver.desktop
+%{_datadir}/services/keximigrate_pqxxmigrate.desktop

@@ -4,12 +4,14 @@ Name:		kexi
 Version:	0.1
 %define		_beta	beta5
 %define		_snap	20041208
-Release:	0.%{_snap}.3
+Release:	0.%{_snap}.4
 License:	GPL v2
 Group:		Applications/Databases
 #Source0:	ftp://ftp.kde.org/pub/kde/unstable/apps/KDE3.x/office/%{name}-%{version}%{_beta}.tar.bz2
 Source0:	kexi-0.1-cvs%{_snap}.tar.bz2
 # Source0-md5:	a7a994493574ded550fc44420fb29eef
+Source1:	%{name}-translations-%{_snap}.tar.bz2
+# Source1-md5:	5894c6c98f66de6f4488a7fd442f2928
 URL:		http://www.kexi-project.org/
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel
@@ -53,7 +55,7 @@ This package allows Kexi to access PosgtresSQL servers.
 Ten pakiet pozwala na ³±czenie siê Kexi z serwerem PostgreSQL.
 
 %prep
-%setup -q -n %{name}-%{version}-cvs
+%setup -q -n %{name}-%{version}-cvs -a1
 
 %build
 cp -f /usr/share/automake/config.sub admin
@@ -78,13 +80,24 @@ install -d $RPM_BUILD_ROOT%{_desktopdir}
 mv $RPM_BUILD_ROOT%{_datadir}{/applnk/Utilities/kformdesigner.desktop,/applications/kde/kexi.desktop} \
 	$RPM_BUILD_ROOT%{_desktopdir}
 
+#Install locales
+cd translations
+for dir in *; do
+	[ ! -d "$dir" ] && continue
+	install -d $RPM_BUILD_ROOT%{_datadir}/locale/$dir/LC_MESSAGES
+	install $dir/kexi.mo $RPM_BUILD_ROOT%{_datadir}/locale/$dir/LC_MESSAGES/
+done
+cd ..
+
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc kexi/CHANGES AUTHORS README
 %attr(755,root,root) %{_bindir}/*

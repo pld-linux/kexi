@@ -47,7 +47,10 @@ mv $RPM_BUILD_ROOT%{_datadir}/applnk/{Office/kexi.desktop,Utilities/kformdesigne
 	$RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
-#rm -rf $RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT
+
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)

@@ -29,10 +29,10 @@ tworzeniu schematów baz danych oraz wstawianiu, odpytywaniu i
 przetwarzaniu danych.
 
 %package backend-mysql
-Summary:        mySQL backend for Kexi
-Summary(pl):    Backend mySQL dla Kexi
-Group:          Applications/Databases
-Requires:       %{name} = %{version}-%{release}
+Summary:	mySQL backend for Kexi
+Summary(pl):	Backend mySQL dla Kexi
+Group:		Applications/Databases
+Requires:	%{name} = %{version}-%{release}
 
 %description backend-mysql
 This package allows Kexi to access mySQL servers.
@@ -41,10 +41,10 @@ This package allows Kexi to access mySQL servers.
 Ten pakiet pozwala na ³±czenie siê Kexi z serwerem mySQL.
 
 %package backend-pgsql
-Summary:        PostgreSQL backend for Kexi
-Summary(pl):    Backend PostgreSQL dla Kexi
-Group:          Applications/Databases
-Requires:       %{name} = %{version}-%{release}
+Summary:	PostgreSQL backend for Kexi
+Summary(pl):	Backend PostgreSQL dla Kexi
+Group:		Applications/Databases
+Requires:	%{name} = %{version}-%{release}
 
 %description backend-pgsql
 This package allows Kexi to access PosgtresSQL servers.
@@ -172,7 +172,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/crystalsvg/32x32/mimetypes/kexiproject_shortcut.png
 %{_iconsdir}/crystalsvg/*/mimetypes/kexiproject_sqlite.png
 %{_iconsdir}/crystalsvg/*/mimetypes/kexiproject_sqlite2.png
-%{_iconsdir}/crystalsvg/scalable/apps/kexi.svgz	       
+%{_iconsdir}/crystalsvg/scalable/apps/kexi.svgz
 %{_datadir}/mimelnk/application/x-kexiproject-shortcut.desktop
 %{_datadir}/mimelnk/application/x-kexiproject-sqlite.desktop
 %{_datadir}/mimelnk/application/x-kexiproject-sqlite2.desktop

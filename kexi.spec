@@ -4,7 +4,7 @@ Name:		kexi
 Version:	0.1
 %define		_beta	beta5
 %define		_snap	20041208
-Release:	0.%{_snap}.2
+Release:	0.%{_snap}.3
 License:	GPL v2
 Group:		Applications/Databases
 #Source0:	ftp://ftp.kde.org/pub/kde/unstable/apps/KDE3.x/office/%{name}-%{version}%{_beta}.tar.bz2
@@ -60,7 +60,9 @@ cp -f /usr/share/automake/config.sub admin
 export UNSERMAKE=/usr/share/unsermake/unsermake
 
 %configure \
-	--with-qt-libraries=%{_libdir}
+	--with-qt-libraries=%{_libdir} \
+	--with-pgsqllibdir=%{_libdir} \
+	--with-pqxxslibdir=%{_libdir}
 
 %{__make}
 

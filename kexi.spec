@@ -167,9 +167,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/servicetypes/*.desktop
 
 %files backend-mysql
+%defattr(644,root,root,755)
 %{_libdir}/kde3/kexidb_mysqldriver.la
 %attr(755,root,root) %{_libdir}/kde3/kexidb_mysqldriver.so
 
 %files backend-pgsql
+%defattr(644,root,root,755)
 %{_libdir}/kde3/kexidb_pqxxsqldriver.la
 %attr(755,root,root) %{_libdir}/kde3/kexidb_pqxxsqldriver.so

@@ -1,14 +1,15 @@
 Summary:	Kexi - an integrated environment for managing data
 Summary(pl):	Kexi - zintegrowane ¶rodowisko do zarz±dzania danymi
-Summary:	Kexi is an integrated environment for managing data
 Name:		kexi
 Version:	0.1
 %define		_beta	beta5
-Release:	0.%{_beta}.2
+%define		_snap	20041208
+Release:	0.%{_snap}.1
 License:	GPL v2
 Group:		Applications/Databases
-Source0:	ftp://ftp.kde.org/pub/kde/unstable/apps/KDE3.x/office/%{name}-%{version}%{_beta}.tar.bz2
-# Source0-md5:	ec707cb1d806b5523f1254da1a5d7a48
+#Source0:	ftp://ftp.kde.org/pub/kde/unstable/apps/KDE3.x/office/%{name}-%{version}%{_beta}.tar.bz2
+Source0:	kexi-0.1-cvs%{_snap}.tar.bz2
+# Source0-md5:	a7a994493574ded550fc44420fb29eef
 URL:		http://www.kexi-project.org/
 BuildRequires:	automake
 #BuildRequires:	doxygen
@@ -32,7 +33,7 @@ tworzeniu schematów baz danych oraz wstawianiu, odpytywaniu i
 przetwarzaniu danych.
 
 %prep
-%setup -q -n %{name}-%{version}%{_beta}
+%setup -q -n %{name}-%{version}-cvs
 
 %build
 cp -f /usr/share/automake/config.sub admin
@@ -83,12 +84,16 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde3/libkformdesigner_part.so
 %{_libdir}/kde3/kexihandler_form.la
 %attr(755,root,root) %{_libdir}/kde3/kexihandler_form.so
+%{_libdir}/kde3/kexihandler_migration.la
+%attr(755,root,root) %{_libdir}/kde3/kexihandler_migration.so
 %{_libdir}/kde3/kexihandler_query.la
 %attr(755,root,root) %{_libdir}/kde3/kexihandler_query.so
 %{_libdir}/kde3/kexihandler_relation.la
 %attr(755,root,root) %{_libdir}/kde3/kexihandler_relation.so
 %{_libdir}/kde3/kexihandler_table.la
 %attr(755,root,root) %{_libdir}/kde3/kexihandler_table.so
+%{_libdir}/kde3/keximigrate_pqxxmigrate.la
+%attr(755,root,root) %{_libdir}/kde3/keximigrate_pqxxmigrate.so
 %{_libdir}/kde3/stdwidgets.la
 %attr(755,root,root) %{_libdir}/kde3/stdwidgets.so
 %{_libdir}/libkdeinit_kexi.la
@@ -105,6 +110,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkexiextendedwidgets.so.*.*.*
 %{_libdir}/libkeximain.la
 %attr(755,root,root) %{_libdir}/libkeximain.so.*.*.*
+%{_libdir}/libkeximigrate.la
+%attr(755,root,root) %{_libdir}/libkeximigrate.so.*.*.*
 %{_libdir}/libkexipropertyeditor.la
 %attr(755,root,root) %{_libdir}/libkexipropertyeditor.so.*.*.*
 %{_libdir}/libkexirelationsview.la
@@ -127,8 +134,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config/kexirc
 %dir %{_datadir}/config/magic
 %{_datadir}/config/magic/kexi.magic
+%{_iconsdir}/crystalsvg/32x32/apps/kexi.png
 %{_iconsdir}/crystalsvg/32x32/mimetypes/kexiproject_shortcut.png
 %{_iconsdir}/crystalsvg/32x32/mimetypes/kexiproject_sqlite.png
+%{_iconsdir}/crystalsvg/32x32/mimetypes/kexiproject_sqlite2.png
 %{_iconsdir}/crystalsvg/scalable/apps/kexi.svgz	       
 %{_datadir}/mimelnk/application/x-kexiproject-shortcut.desktop
 %{_datadir}/mimelnk/application/x-kexiproject-sqlite.desktop

@@ -152,10 +152,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config/kexirc
 %dir %{_datadir}/config/magic
 %{_datadir}/config/magic/kexi.magic
-%{_iconsdir}/crystalsvg/32x32/apps/kexi.png
+%{_iconsdir}/crystalsvg/*/apps/kexi.png
 %{_iconsdir}/crystalsvg/32x32/mimetypes/kexiproject_shortcut.png
-%{_iconsdir}/crystalsvg/32x32/mimetypes/kexiproject_sqlite.png
-%{_iconsdir}/crystalsvg/32x32/mimetypes/kexiproject_sqlite2.png
+%{_iconsdir}/crystalsvg/*/mimetypes/kexiproject_sqlite.png
+%{_iconsdir}/crystalsvg/*/mimetypes/kexiproject_sqlite2.png
 %{_iconsdir}/crystalsvg/scalable/apps/kexi.svgz	       
 %{_datadir}/mimelnk/application/x-kexiproject-shortcut.desktop
 %{_datadir}/mimelnk/application/x-kexiproject-sqlite.desktop

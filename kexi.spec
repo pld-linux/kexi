@@ -42,12 +42,16 @@ rm -rf $RPM_BUILD_ROOT
 	kde_htmldir=%{_kdedocdir} \
 	kde_libs_htmldir=%{_kdedocdir}
 
+install -d $RPM_BUILD_ROOT%{_desktopdir}
+mv $RPM_BUILD_ROOT%{_datadir}/applnk/{Office/kexi.desktop,Utilities/kformdesigner.desktop} \
+	$RPM_BUILD_ROOT%{_desktopdir}
+
 %clean
 #rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-#doc AUTHORS CREDITS ChangeLog NEWS README THANKS TODO
+%doc kexi/CHANGES AUTHORS README
 %attr(755,root,root) %{_bindir}/kexi
 %attr(755,root,root) %{_bindir}/kformdesigner
 %{_libdir}/kde3/containers.la
@@ -95,16 +99,20 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/apps/kexi
 %dir %{_datadir}/apps/kexi/icons
 %{_datadir}/apps/kexi/icons/crystalsvg
+%{_datadir}/apps/kexi/pics
+%{_datadir}/apps/kexi/*.rc
 %{_datadir}/apps/kformdesigner
-#/usr/share/applnk/Office/kexi.desktop
-#/usr/share/applnk/Utilities/kformdesigner.desktop
+%{_desktopdir}/kexi.desktop
+%{_desktopdir}/kformdesigner.desktop
 %{_datadir}/config/kexirc
 %dir %{_datadir}/config/magic
 %{_datadir}/config/magic/kexi.magic
 %{_iconsdir}/crystalsvg/32x32/mimetypes/kexiproject_shortcut.png
 %{_iconsdir}/crystalsvg/32x32/mimetypes/kexiproject_sqlite.png
 %{_iconsdir}/crystalsvg/scalable/apps/kexi.svgz	       
-#/usr/share/mimelnk/application/x-kexiproject-shortcut.desktop
-#/usr/share/mimelnk/application/x-kexiproject-sqlite.desktop
-%{_datadir}/services
-%{_datadir}/servicetypes
+%{_datadir}/mimelnk/application/x-kexiproject-shortcut.desktop
+%{_datadir}/mimelnk/application/x-kexiproject-sqlite.desktop
+%{_datadir}/services/kexi
+%{_datadir}/services/*.desktop
+%{_datadir}/services/kformeditor
+%{_datadir}/servicetypes/*.desktop

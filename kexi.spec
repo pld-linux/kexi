@@ -62,7 +62,7 @@ export UNSERMAKE=/usr/share/unsermake/unsermake
 %configure \
 	--with-qt-libraries=%{_libdir} \
 	--with-pgsqllibdir=%{_libdir} \
-	--with-pqxxslibdir=%{_libdir}
+	--with-pqxxlibdir=%{_libdir}
 
 %{__make}
 

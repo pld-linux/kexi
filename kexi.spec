@@ -56,7 +56,7 @@ Ten pakiet pozwala na ³±czenie siê Kexi z serwerem PostgreSQL.
 Summary:	Developement files for Kexi
 Summary(pl):	Pliki nag³ówkowe dla Kexi
 Group:		Applications/Databases
-Requires:       %{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 This package contains the development header files for applications

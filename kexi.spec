@@ -1,3 +1,5 @@
+Summary:	Kexi - an integrated environment for managing data
+Summary(pl):	Kexi - zintegrowane ¶rodowisko do zarz±dzania danymi
 Summary:	Kexi is an integrated environment for managing data
 Name:		kexi
 Version:	0.1
@@ -8,6 +10,7 @@ Group:		Applications/Databases
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/apps/KDE3.x/office/%{name}-%{version}%{_beta}.tar.bz2
 # Source0-md5:	90ddba0742b9d1552d82d9f02e16d555
 URL:		http://www.kexi-project.org/
+BuildRequires:	automake
 #BuildRequires:	doxygen
 BuildRequires:	kdelibs-devel
 BuildRequires:	libpqxx-devel
@@ -16,11 +19,17 @@ BuildRequires:	mysql-devel
 BuildRequires:	postgresql-devel
 #BuildRequires:	qsa
 #BuildRequires:	unixODBC-devel (it needs fixes in kexi/kexidb/drivers/configure.in*)
+BuildRequires:	unsermake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Kexi is an integrated environment for managing data. It helps creating
 database schemas, inserting, querying and processing data.
+
+%description -l pl
+Kexi to zintegrowane ¶rodowisko do zarz±dzania danymi. Pomaga przy
+tworzeniu schematów baz danych oraz wstawianiu, odpytywaniu i
+przetwarzaniu danych.
 
 %prep
 %setup -q -n %{name}-%{version}%{_beta}

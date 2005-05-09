@@ -1,15 +1,13 @@
 Summary:	Kexi - an integrated environment for managing data
 Summary(pl):	Kexi - zintegrowane ¶rodowisko do zarz±dzania danymi
 Name:		kexi
-Version:	0.1
-%define		_beta	beta5
-%define		_snap	20050404
-Release:	0.%{_snap}.1
+Version:	0.9
+%define		_beta	beta1
+Release:	0.%{_beta}.1
 License:	GPL v2
 Group:		Applications/Databases
-#Source0:	ftp://ftp.kde.org/pub/kde/unstable/apps/KDE3.x/office/%{name}-%{version}%{_beta}.tar.bz2
-Source0:	kexi-0.1-cvs%{_snap}.tar.bz2
-# Source0-md5:	c4047f7ca9d67e650517ec587ae44c63
+Source0:	http://www.kexi.pl/src/kexi-%{version}%{_beta}.tar.bz2
+# Source0-md5:	88287aa2c86ba2e9ce4e5ce5eb943128
 URL:		http://www.kexi-project.org/
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel
@@ -67,7 +65,7 @@ Pakiet ten zawiera pliki nag³ówkowe dla aplikacji korzystaj±cych
 z Kexi.
 
 %prep
-%setup -q -n %{name}-%{version}-cvs
+%setup -q -n %{name}-%{version}%{_beta}
 
 %build
 cp -f /usr/share/automake/config.sub admin
@@ -100,7 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc kexi/CHANGES AUTHORS README
+%doc CHANGES AUTHORS README
 %attr(755,root,root) %{_bindir}/*
 %{_libdir}/kde3/containers.la
 %attr(755,root,root) %{_libdir}/kde3/containers.so
@@ -116,6 +114,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde3/libkformdesigner_part.so
 %{_libdir}/kde3/kexihandler_form.la
 %attr(755,root,root) %{_libdir}/kde3/kexihandler_form.so
+%{_libdir}/kde3/kexihandler_script.la
+%attr(755,root,root) %{_libdir}/kde3/kexihandler_script.so
 %{_libdir}/kde3/kexihandler_migration.la
 %attr(755,root,root) %{_libdir}/kde3/kexihandler_migration.so
 %{_libdir}/kde3/kexihandler_query.la

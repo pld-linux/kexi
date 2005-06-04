@@ -2,18 +2,19 @@ Summary:	Kexi - an integrated environment for managing data
 Summary(pl):	Kexi - zintegrowane ¶rodowisko do zarz±dzania danymi
 Name:		kexi
 Version:	0.9
-%define		_beta	beta1
-Release:	0.%{_beta}.1
+Release:	1
 License:	GPL v2
 Group:		Applications/Databases
-Source0:	http://www.kexi.pl/src/kexi-%{version}%{_beta}.tar.bz2
-# Source0-md5:	88287aa2c86ba2e9ce4e5ce5eb943128
+Source0:	ftp://ftp.kde.org/pub/kde/stable/apps/KDE3.x/database/%{name}-%{version}.tar.bz2
+# Source0-md5:	c599372caca7a4c8976a4c0258145035
 URL:		http://www.kexi-project.org/
 BuildRequires:	automake
+BuildRequires:	glib2-devel
 BuildRequires:	kdelibs-devel
 BuildRequires:	libpqxx-devel
 BuildRequires:	libxml2-progs
 BuildRequires:	mysql-devel
+BuildRequires:	pkgconfig
 BuildRequires:	unsermake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -65,7 +66,7 @@ Pakiet ten zawiera pliki nag³ówkowe dla aplikacji korzystaj±cych
 z Kexi.
 
 %prep
-%setup -q -n %{name}-%{version}%{_beta}
+%setup -q
 
 %build
 cp -f /usr/share/automake/config.sub admin

@@ -167,7 +167,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kexi.desktop
 %{_desktopdir}/kformdesigner.desktop
 %{_datadir}/config/kexirc
-%dir %{_datadir}/config/magic
 %{_datadir}/config/magic/kexi.magic
 %{_iconsdir}/crystalsvg/*/apps/kexi.png
 %{_iconsdir}/crystalsvg/32x32/mimetypes/kexiproject_shortcut.png

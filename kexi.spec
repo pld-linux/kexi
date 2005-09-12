@@ -16,6 +16,7 @@ BuildRequires:	libxml2-progs
 BuildRequires:	mysql-devel
 BuildRequires:	pkgconfig
 BuildRequires:	unsermake
+Provides:	koffice-kexi
 Obsoletes:	koffice-kexi
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

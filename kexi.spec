@@ -2,7 +2,7 @@ Summary:	Kexi - an integrated environment for managing data
 Summary(pl):	Kexi - zintegrowane ¶rodowisko do zarz±dzania danymi
 Name:		kexi
 Version:	0.9
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/Databases
 Source0:	ftp://ftp.kde.org/pub/kde/stable/apps/KDE3.x/database/%{name}-%{version}.tar.bz2
@@ -16,6 +16,7 @@ BuildRequires:	libxml2-progs
 BuildRequires:	mysql-devel
 BuildRequires:	pkgconfig
 BuildRequires:	unsermake
+Obsoletes:	koffice-kexi
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description

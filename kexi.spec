@@ -9,12 +9,9 @@ Source0:	ftp://ftp.kde.org/pub/kde/stable/apps/KDE3.x/database/%{name}-%{version
 # Source0-md5:	c599372caca7a4c8976a4c0258145035
 URL:		http://www.kexi-project.org/
 BuildRequires:	automake
-BuildRequires:	glib2-devel
 BuildRequires:	kdelibs-devel
 BuildRequires:	libpqxx-devel
-BuildRequires:	libxml2-progs
 BuildRequires:	mysql-devel
-BuildRequires:	pkgconfig
 BuildRequires:	unsermake
 Provides:	koffice-kexi
 Obsoletes:	koffice-kexi
@@ -58,6 +55,7 @@ Summary:	Developement files for Kexi
 Summary(pl):	Pliki nag³ówkowe dla Kexi
 Group:		Applications/Databases
 Requires:	%{name} = %{version}-%{release}
+Requires:	kdelibs-devel
 
 %description devel
 This package contains the development header files for applications
@@ -93,15 +91,6 @@ install -d $RPM_BUILD_ROOT%{_desktopdir}
 mv $RPM_BUILD_ROOT%{_datadir}{/applnk/Utilities/kformdesigner.desktop,/applications/kde/kexi.desktop} \
 	$RPM_BUILD_ROOT%{_desktopdir}
 
-ln -s $RPM_BUILD_ROOT%{_libdir}/libkeximigrate.so libkeximigrate.so.0.%{version}
-ln -s $RPM_BUILD_ROOT%{_libdir}/libkeximain.so libkeximain.so.0.%{version}
-ln -s $RPM_BUILD_ROOT%{_libdir}/libkexiextendedwidgets.so libkexiextendedwidgets.so.0.%{version}
-ln -s $RPM_BUILD_ROOT%{_libdir}/libkexidatatable.so libkexidatatable.so.0.%{version}
-ln -s $RPM_BUILD_ROOT%{_libdir}/libkexiguiutils.so libkexiguiutils.so.0.%{version}
-ln -s $RPM_BUILD_ROOT%{_libdir}/libkexicore.so libkexicore.so.0.%{version}
-ln -s $RPM_BUILD_ROOT%{_libdir}/libkexidbparser.so libkexidbparser.so.0.%{version}
-ln -s $RPM_BUILD_ROOT%{_libdir}/libkexidb.so libkexidb.so.0.%{version}
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -112,6 +101,36 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CHANGES AUTHORS README
 %attr(755,root,root) %{_bindir}/*
+%{_libdir}/libkdeinit_kexi.la
+%attr(755,root,root) %{_libdir}/libkdeinit_kexi.so
+%{_libdir}/libkexicore.la
+%attr(755,root,root) %{_libdir}/libkexicore.so.*.*.*
+%{_libdir}/libkexidatatable.la
+%attr(755,root,root) %{_libdir}/libkexidatatable.so.*.*.*
+%{_libdir}/libkexidb.la
+%attr(755,root,root) %{_libdir}/libkexidb.so.*.*.*
+%{_libdir}/libkexidbparser.la
+%attr(755,root,root) %{_libdir}/libkexidbparser.so.*.*.*
+%{_libdir}/libkexiextendedwidgets.la
+%attr(755,root,root) %{_libdir}/libkexiextendedwidgets.so.*.*.*
+%{_libdir}/libkexiformutils.la
+%attr(755,root,root) %{_libdir}/libkexiformutils.so.*.*.*
+%{_libdir}/libkexiguiutils.la
+%attr(755,root,root) %{_libdir}/libkexiguiutils.so.*.*.*
+%{_libdir}/libkeximain.la
+%attr(755,root,root) %{_libdir}/libkeximain.so.*.*.*
+%{_libdir}/libkeximigrate.la
+%attr(755,root,root) %{_libdir}/libkeximigrate.so.*.*.*
+%{_libdir}/libkexipropertyeditor.la
+%attr(755,root,root) %{_libdir}/libkexipropertyeditor.so.*.*.*
+%{_libdir}/libkexirelationsview.la
+%attr(755,root,root) %{_libdir}/libkexirelationsview.so.*.*.*
+%{_libdir}/libkexisql2.la
+%attr(755,root,root) %{_libdir}/libkexisql2.so.*.*.*
+%{_libdir}/libkexisql3.la
+%attr(755,root,root) %{_libdir}/libkexisql3.so.*.*.*
+%{_libdir}/libkformdesigner.la
+%attr(755,root,root) %{_libdir}/libkformdesigner.so.*.*.*
 %{_libdir}/kde3/containers.la
 %attr(755,root,root) %{_libdir}/kde3/containers.so
 %{_libdir}/kde3/kexi.la
@@ -138,54 +157,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde3/kexihandler_table.so
 %{_libdir}/kde3/stdwidgets.la
 %attr(755,root,root) %{_libdir}/kde3/stdwidgets.so
-%{_libdir}/libkdeinit_kexi.la
-%attr(755,root,root) %{_libdir}/libkdeinit_kexi.so
-%{_libdir}/libkexicore.la
-%attr(755,root,root) %{_libdir}/libkexicore.so.*.*.*
-%{_libdir}/libkexicore.so
-%{_libdir}/libkexidatatable.la
-%attr(755,root,root) %{_libdir}/libkexidatatable.so.*.*.*
-%{_libdir}/libkexidatatable.so
-%{_libdir}/libkexidb.la
-%attr(755,root,root) %{_libdir}/libkexidb.so.*.*.*
-%{_libdir}/libkexidb.so
-%{_libdir}/libkexidbparser.la
-%attr(755,root,root) %{_libdir}/libkexidbparser.so.*.*.*
-%{_libdir}/libkexidbparser.so
-%{_libdir}/libkexiextendedwidgets.la
-%attr(755,root,root) %{_libdir}/libkexiextendedwidgets.so.*.*.*
-%{_libdir}/libkexiextendedwidgets.so
-%{_libdir}/libkexiformutils.la
-%attr(755,root,root) %{_libdir}/libkexiformutils.so.*.*.*
-%{_libdir}/libkexiformutils.so
-%{_libdir}/libkexiguiutils.la
-%attr(755,root,root) %{_libdir}/libkexiguiutils.so.*.*.*
-%{_libdir}/libkexiguiutils.so
-%{_libdir}/libkeximain.la
-%attr(755,root,root) %{_libdir}/libkeximain.so.*.*.*
-%{_libdir}/libkeximain.so
-%{_libdir}/libkeximigrate.la
-%attr(755,root,root) %{_libdir}/libkeximigrate.so.*.*.*
-%{_libdir}/libkeximigrate.so
-%{_libdir}/libkexipropertyeditor.la
-%attr(755,root,root) %{_libdir}/libkexipropertyeditor.so.*.*.*
-%{_libdir}/libkexipropertyeditor.so
-%{_libdir}/libkexirelationsview.la
-%attr(755,root,root) %{_libdir}/libkexirelationsview.so.*.*.*
-%{_libdir}/libkexirelationsview.so
-%{_libdir}/libkexisql2.la
-%attr(755,root,root) %{_libdir}/libkexisql2.so.*.*.*
-%{_libdir}/libkexisql2.so
-%{_libdir}/libkexisql3.la
-%attr(755,root,root) %{_libdir}/libkexisql3.so.*.*.*
-%{_libdir}/libkexisql3.so
-%{_libdir}/libkformdesigner.la
-%attr(755,root,root) %{_libdir}/libkformdesigner.so.*.*.*
 %dir %{_datadir}/apps/kexi
 %dir %{_datadir}/apps/kexi/icons
 %{_datadir}/apps/kexi/icons/crystalsvg
 %{_datadir}/apps/kexi/pics
 %{_datadir}/apps/kexi/*.rc
+%{_datadir}/apps/kexi/readme_en
 %{_datadir}/apps/kformdesigner
 %{_datadir}/apps/kformdesigner_part
 %{_desktopdir}/kexi.desktop
@@ -228,5 +205,19 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libkexicore.so
+%attr(755,root,root) %{_libdir}/libkexidatatable.so
+%attr(755,root,root) %{_libdir}/libkexidb.so
+%attr(755,root,root) %{_libdir}/libkexidbparser.so
+%attr(755,root,root) %{_libdir}/libkexiextendedwidgets.so
+%attr(755,root,root) %{_libdir}/libkexiformutils.so
+%attr(755,root,root) %{_libdir}/libkexiguiutils.so
+%attr(755,root,root) %{_libdir}/libkeximain.so
+%attr(755,root,root) %{_libdir}/libkeximigrate.so
+%attr(755,root,root) %{_libdir}/libkexipropertyeditor.so
+%attr(755,root,root) %{_libdir}/libkexirelationsview.so
+%attr(755,root,root) %{_libdir}/libkexisql2.so
+%attr(755,root,root) %{_libdir}/libkexisql3.so
+%attr(755,root,root) %{_libdir}/libkformdesigner.so
 %dir %{_includedir}/kexidb
 %{_includedir}/kexidb/*

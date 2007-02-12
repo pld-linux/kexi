@@ -1,5 +1,5 @@
 Summary:	Kexi - an integrated environment for managing data
-Summary(pl):	Kexi - zintegrowane ¶rodowisko do zarz±dzania danymi
+Summary(pl.UTF-8):   Kexi - zintegrowane Å›rodowisko do zarzÄ…dzania danymi
 Name:		kexi
 Version:	0.9
 Release:	7
@@ -21,38 +21,38 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Kexi is an integrated environment for managing data. It helps creating
 database schemas, inserting, querying and processing data.
 
-%description -l pl
-Kexi to zintegrowane ¶rodowisko do zarz±dzania danymi. Pomaga przy
-tworzeniu schematów baz danych oraz wstawianiu, odpytywaniu i
+%description -l pl.UTF-8
+Kexi to zintegrowane Å›rodowisko do zarzÄ…dzania danymi. Pomaga przy
+tworzeniu schematÃ³w baz danych oraz wstawianiu, odpytywaniu i
 przetwarzaniu danych.
 
 %package backend-mysql
 Summary:	mySQL backend for Kexi
-Summary(pl):	Backend mySQL dla Kexi
+Summary(pl.UTF-8):   Backend mySQL dla Kexi
 Group:		Applications/Databases
 Requires:	%{name} = %{version}-%{release}
 
 %description backend-mysql
 This package allows Kexi to access mySQL servers.
 
-%description backend-mysql -l pl
-Ten pakiet pozwala na ³±czenie siê Kexi z serwerem mySQL.
+%description backend-mysql -l pl.UTF-8
+Ten pakiet pozwala na Å‚Ä…czenie siÄ™ Kexi z serwerem mySQL.
 
 %package backend-pgsql
 Summary:	PostgreSQL backend for Kexi
-Summary(pl):	Backend PostgreSQL dla Kexi
+Summary(pl.UTF-8):   Backend PostgreSQL dla Kexi
 Group:		Applications/Databases
 Requires:	%{name} = %{version}-%{release}
 
 %description backend-pgsql
 This package allows Kexi to access PosgtresSQL servers.
 
-%description backend-pgsql -l pl
-Ten pakiet pozwala na ³±czenie siê Kexi z serwerem PostgreSQL.
+%description backend-pgsql -l pl.UTF-8
+Ten pakiet pozwala na Å‚Ä…czenie siÄ™ Kexi z serwerem PostgreSQL.
 
 %package devel
 Summary:	Developement files for Kexi
-Summary(pl):	Pliki nag³ówkowe dla Kexi
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe dla Kexi
 Group:		Applications/Databases
 Requires:	%{name} = %{version}-%{release}
 Requires:	kdelibs-devel
@@ -61,8 +61,8 @@ Requires:	kdelibs-devel
 This package contains the development header files for applications
 using Kexi.
 
-%description devel -l pl
-Pakiet ten zawiera pliki nag³ówkowe dla aplikacji korzystaj±cych
+%description devel -l pl.UTF-8
+Pakiet ten zawiera pliki nagÅ‚Ã³wkowe dla aplikacji korzystajÄ…cych
 z Kexi.
 
 %prep

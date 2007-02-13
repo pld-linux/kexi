@@ -1,5 +1,5 @@
 Summary:	Kexi - an integrated environment for managing data
-Summary(pl.UTF-8):   Kexi - zintegrowane środowisko do zarządzania danymi
+Summary(pl.UTF-8):	Kexi - zintegrowane środowisko do zarządzania danymi
 Name:		kexi
 Version:	0.9
 Release:	7
@@ -28,7 +28,7 @@ przetwarzaniu danych.
 
 %package backend-mysql
 Summary:	mySQL backend for Kexi
-Summary(pl.UTF-8):   Backend mySQL dla Kexi
+Summary(pl.UTF-8):	Backend mySQL dla Kexi
 Group:		Applications/Databases
 Requires:	%{name} = %{version}-%{release}
 
@@ -40,7 +40,7 @@ Ten pakiet pozwala na łączenie się Kexi z serwerem mySQL.
 
 %package backend-pgsql
 Summary:	PostgreSQL backend for Kexi
-Summary(pl.UTF-8):   Backend PostgreSQL dla Kexi
+Summary(pl.UTF-8):	Backend PostgreSQL dla Kexi
 Group:		Applications/Databases
 Requires:	%{name} = %{version}-%{release}
 
@@ -52,7 +52,7 @@ Ten pakiet pozwala na łączenie się Kexi z serwerem PostgreSQL.
 
 %package devel
 Summary:	Developement files for Kexi
-Summary(pl.UTF-8):   Pliki nagłówkowe dla Kexi
+Summary(pl.UTF-8):	Pliki nagłówkowe dla Kexi
 Group:		Applications/Databases
 Requires:	%{name} = %{version}-%{release}
 Requires:	kdelibs-devel
